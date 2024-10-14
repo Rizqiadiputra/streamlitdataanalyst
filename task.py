@@ -2,9 +2,16 @@ import streamlit as st
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+import gdown
 
 sns.set(style='dark')
 
+
+file_id = '1Xq_E5NR9kZKHwOh-hoD8HcuRuJNiaEOL'
+url = f'https://drive.google.com/uc?id={file_id}'
+
+output = 'all_data_new.csv'
+gdown.download(url,output,quiet=False)
 
 def show_order_customers_city_df(df):
     order_customers_city_df = df['customer_city'].value_counts().head(10).reset_index()
